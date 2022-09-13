@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header>
-		<h1>Titulo</h1>
+		<h1>El Ahorcado</h1>
 	</header>
 
 	<main>
@@ -19,17 +19,22 @@
 		</div>
 
 		<div class="jugando">
-			<canvas class="lienso" width="464" height="632"></canvas>
+			<canvas class="lienso" width="294" height="360"></canvas>
 
-			<div class="letras">
-				
+			<div class="sectorLetras">
+				<div class="letrasCorrectas"></div>
+				<div class="letrasIncorrectas"></div>
 			</div>
 
-			<button class="btnRendirse">Rendirse</button>
+			<div class="btnsJugando">
+				<button class="btnNuevoJuego">Nuevo juego</button>
+				<button class="btnRendirse">Rendirse</button>
+			</div>
+
 		</div>
 
 		<div class="agregaPalabras" >
-			<textarea class="palabra"></textarea>
+			<textarea class="palabra" maxlength="8"></textarea>
 			<button class="btnGuardar" >Guardar y jugar</button>
 			<button class="btnCancelar">Cancelar</button>
 		</div>

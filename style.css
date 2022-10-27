@@ -1,9 +1,10 @@
 *{padding: 0;margin: 0;}
 
 :root{
-	--Gris: #323232;
+	--Gris: #232323;
 	--Blanco: #F9F9F9;
 	--Rojo: #FF1E00;
+	--Verde: #7DCE13;
 }
 
 body{font-family: monospace;background-color: var(--Gris) ;}

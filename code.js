@@ -20,7 +20,7 @@ let divs = [];
 var i=0,h=0;
 
 btnJugar.onclick = jugar;
-btnNuevoJuego.onclick = nuevoJuego;
+btnNuevoJuego.onclick = retornar;
 btnGuardar.onclick = guardarJugar;
 btnAdd.onclick = añadirPalabra;
 btnRendirse.onclick = retornar;
@@ -81,87 +81,49 @@ function jugar(){
         }
 
         if(encontrado == false){
-            letrasSub.push(event.key);
+            letrasSub.push(event.key.toUpperCase());
             letrasIncorrectas.innerHTML = letrasIncorrectas.innerHTML + "<p>"+event.key.toUpperCase()+"</p>";
             if (letrasSub.length === 1) {   
                 //palo vertical
-                pincel.fillStyle = "#F9F9F9";
-                pincel.strokeStyle = "#F9F9F9";
+                crearRectangulo(98,0,5,360,"#F9F9F9");
 
-                pincel.fillRect(98,0,5,360);
             }else if(letrasSub.length === 2){
                 //palo horizontal
-                pincel.fillStyle = "#F9F9F9";
-                pincel.strokeStyle = "#F9F9F9";
-                pincel.fillRect(98,0,156,3.5);
+                crearRectangulo(98,0,156,3.5,"#F9F9F9");
                 
             }else if(letrasSub.length === 3){
                 //cuerda
-                pincel.fillStyle = "#F9F9F9";
-                pincel.strokeStyle = "#F9F9F9";
-                pincel.fillRect(250.5,0,3.5,55);
+                crearRectangulo(250.5,0,3.5,55,"#F9F9F9");
                 
             }else if(letrasSub.length === 4){
                 //cabeza
-                pincel.fillStyle = "#F9F9F9";
-                pincel.strokeStyle = "#F9F9F9";
-                pincel.beginPath();
-                pincel.arc(253,81,25,0,2*3.14);
-                pincel.stroke();
+                crearCirculo(253,81,25,"#F9F9F9");
                 
             }else if(letrasSub.length === 5){
                 //soga en el cuello
-                pincel.fillStyle = "#F9F9F9";
-                pincel.strokeStyle = "#F9F9F9";
-                pincel.beginPath();
-                pincel.moveTo(248,110);
-                pincel.lineWidth = "4.5";
-                pincel.lineCap = "round";
-                pincel.lineTo(258,110);
-                pincel.stroke();
-
-                pincel.lineWidth = "3.5";
+                crearLinea(248,110,258,110,"3.5","#F9F9F9");
                 //torso
-                pincel.fillRect(251.5,112,3.5,80);
-                
+                crearRectangulo(251.5,112,3.5,80,"#F9F9F9");
+
             }else if(letrasSub.length === 6){
                 //brazo derecho
-                pincel.fillStyle = "#F9F9F9";
-                pincel.strokeStyle = "#F9F9F9";
-                pincel.beginPath();
-                pincel.moveTo(254,122);
-                pincel.lineTo(282,152);
-                pincel.stroke();
+                crearLinea(254,122,282,152,"3.5","#F9F9F9");
                 
             }else if(letrasSub.length === 7){
                 //brazo izquierdo
-                pincel.fillStyle = "#F9F9F9";
-                pincel.strokeStyle = "#F9F9F9";
-                pincel.beginPath();
-                pincel.moveTo(252,122.5);
-                pincel.lineTo(224,152);
-                pincel.stroke();
+                crearLinea(252,122.5,224,152,"3.5","#F9F9F9");
                 
             }else if(letrasSub.length === 8){
                 //pierna derecha
-                pincel.fillStyle = "#F9F9F9";
-                pincel.strokeStyle = "#F9F9F9";
-                pincel.beginPath();
-                pincel.moveTo(254,192);
-                pincel.lineTo(282,225);
-                pincel.stroke();
+                crearLinea(254,192,282,225,"3.5","#F9F9F9");
                 
             }else if(letrasSub.length === 9){
                 //pierna izquierda
-                pincel.fillStyle = "#F9F9F9";
-                pincel.strokeStyle = "#F9F9F9";
-                pincel.beginPath();
-                pincel.moveTo(252,192);
-                pincel.lineTo(224,225);
-                pincel.stroke();
+                crearLinea(252,192,224,225,"3.5","#F9F9F9");
 
+                pincel.font = "24px Monospace";
                 pincel.fillStyle = "#FF1E00";
-                pincel.fillText("¡Perdiste!", 160, 250);
+                pincel.fillText("¡Perdiste!", 135, 280);
             }
 
             
@@ -177,12 +139,33 @@ function jugar(){
     });
 }
 
-function nuevoJuego(){
-    //Aqui va el proceso de guardar la palabra letra por letra
-    
-    return jugar();
-
+function crearRectangulo(x,y,ancho,alto,color){
+    pincel.fillStyle = color;
+    pincel.fillRect(x,y,ancho,alto);
 }
+function crearCirculo(x,y,radio,color){
+    pincel.fillStyle = color;
+    pincel.strokeStyle = color;
+    pincel.beginPath();
+    pincel.arc(x,y,radio,0,2*3.14);
+    pincel.stroke();
+}
+function crearLinea(x1,y1,x2,y2,grosor,color){
+    pincel.fillStyle = color;
+    pincel.strokeStyle = color;
+    pincel.lineWidth = grosor;
+    pincel.beginPath();
+    pincel.moveTo(x1,y1);
+    pincel.lineTo(x2,y2);
+    pincel.stroke();
+}
+
+// function nuevoJuego(){
+//     //Aqui va el proceso de guardar la palabra letra por letra
+    
+//     return jugar();
+
+// }
 
 function guardarJugar(){
     //Aqui va el proceso de guardar la palabra letra por letra

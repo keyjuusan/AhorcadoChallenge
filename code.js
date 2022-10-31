@@ -44,39 +44,38 @@ function nuevaPartida() {
         letra.textContent = palabras[palabraAleatoria].charAt(i).toUpperCase();
         cajaLetra.appendChild(letra);
     }
-    let h = 0;
+
     const letrasIncorrectas = document.querySelector(".letrasIncorrectas");
     document.addEventListener("keydown", function paco(event) {
         let encontrado = false;
         let encontra2 = false;
 
         // REVELA LAS LETRAS CORRECTAS
-        // for (var g = 0; g < palabras[palabraAleatoria].length; g++) {
-        let verLetra = document.querySelector(".p" + h);
-        if (event.key.toUpperCase() == palabras[palabraAleatoria].charAt(h)) {
-            verLetra.style.display = "block";
+        for (var g = 0; g < palabras[palabraAleatoria].length; g++) {
+            let verLetra = document.querySelector(".p" + g);
+            if (event.key.toUpperCase() == palabras[palabraAleatoria].charAt(g))
+                verLetra.style.display = "block";
         }
-        // }
 
-        // for (var j = 0; j < 8; j++) {
-        if (event.key.toUpperCase() == letrasSub[h] || event.key.toUpperCase() == palabras[palabraAleatoria].charAt(h)) {
+        for (var j = 0; j < 8; j++) {
+            if (event.key.toUpperCase() == letrasSub[j] || event.key.toUpperCase() == palabras[palabraAleatoria].charAt(j)) {
 
-            encontrado = true;
-            // break;
-        } else {
-            console.log("pasó algo");
+                encontrado = true;
+                break;
+            } else {
+                console.log("pasó algo");
+            }
         }
-        // }
 
         // VALIDACION PARA IDENTIFICAR CUANDO SE GANA EN EL JUEGO
-        // for (var h = 0; h < palabras[palabraAleatoria].length; h++) {
-        if (event.key.toUpperCase() == palabras[palabraAleatoria].charAt(h)) {
-            encontra2 = true;
-        } else {
-            letrasSup.push(event.key.toUpperCase());
-            // break;
+        for (var h = 0; h < palabras[palabraAleatoria].length; h++) {
+            if (event.key.toUpperCase() == palabras[palabraAleatoria].charAt(h)) {
+                encontra2 = true;
+            } else {  
+                letrasSup.push(event.key.toUpperCase());
+                break;
+            }
         }
-        // }
 
 
         if (letrasSup.length == palabras[palabraAleatoria].length) {
@@ -137,7 +136,6 @@ function nuevaPartida() {
         } else {
             console.log("problemon");
         }
-        h++;
     });
 
 }

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Ahorcado</title>
 </head>
+
 <body>
 	<header>
 		<h1>El Ahorcado</h1>
@@ -13,7 +15,7 @@
 
 	<main>
 
-		<div class="menuPrincipal" >
+		<div class="menuPrincipal">
 			<button class="btnJugar">Inciar juego</button>
 			<button class="btnAdd">Agregar palabras</button>
 		</div>
@@ -27,20 +29,22 @@
 			</div>
 
 			<div class="btnsJugando">
-				<button class="btnNuevoJuego">Nuevo juego</button>
 				<button class="btnRendirse">Rendirse</button>
 			</div>
 
 		</div>
 
-		<div class="agregaPalabras" >
-			<textarea class="palabra" maxlength="8"></textarea>
-			<button class="btnGuardar" >Guardar y jugar</button>
-			<button class="btnCancelar">Cancelar</button>
+		<div class="agregaPalabras">
+			<textarea class="palabra" maxlength="8" placeholder="Escriba acá una palabra adicional..."></textarea>
+			<div class="btnsAgregando">
+				<button class="btnGuardar">Guardar y jugar</button>
+				<button class="btnCancelar">Cancelar</button>
+			</div>
 		</div>
 
 	</main>
 
-<script src="code.js"></script>
+	<script src="code.js"></script>
 </body>
+
 </html>

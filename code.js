@@ -6,8 +6,9 @@ agregaPalabras.style.display = "none";
 jugando.style.display = "none";
 
 // ALMACENAJE
-let palabras = ["dudas", "codigo", "alura", "victoria", "desafio"];
+let palabras = ["DUDAS", "CODIGO", "ALURA", "VICTORIA", "DESAFIO"];
 let letrasSub = [];
+let letrasSup = [];
 
 // AL PRECIONAR el boton "NUEVO JUEGO"
 const btnJugar = document.querySelector(".btnJugar");
@@ -21,19 +22,18 @@ pincel.lineWidth = "3.5";
 pincel.fillRect(0, 355, 294, 5);
 
 function nuevaPartida() {
-    let numLetrasCorrectas = 0;
 
     // VACIAR ARRAY DE LETRAS INCORRECTAS
 
     menuPrincipal.style.display = "none";
-    jugando.style.display = "block";
+    jugando.style.display = "flex";
 
     // AQUI VA EL DESGLOSE DE UNA PALABRA ALEATORIA REPARTIDO EN ESPACIOS LETRA POR LETRA
     const letrasCorrectas = document.querySelector(".letrasCorrectas");
-    var palabraAleatoria = Math.floor(Math.random() * palabras.length);
+    let palabraAleatoria = Math.floor(Math.random() * palabras.length);
 
 
-    for (let i = 0; i < palabras[palabraAleatoria].length; i++) {
+    for (var i = 0; i < palabras[palabraAleatoria].length; i++) {
 
         const cajaLetra = document.createElement("div");
         cajaLetra.classList.add("cajaLetra");
@@ -43,27 +43,43 @@ function nuevaPartida() {
         letra.style.display = "none";
         letra.textContent = palabras[palabraAleatoria].charAt(i).toUpperCase();
         cajaLetra.appendChild(letra);
-
     }
-
+    let h = 0;
     const letrasIncorrectas = document.querySelector(".letrasIncorrectas");
     document.addEventListener("keydown", function paco(event) {
         let encontrado = false;
+        let encontra2 = false;
 
-
-        for (var j = 0; j < 20; j++) {
-            var verLetra = document.querySelector(".p" + j);
-
-            if (event.key.toUpperCase() == letrasSub[j] || event.key == palabras[palabraAleatoria].charAt(j)) {
-                verLetra.style.display = "block";
-                numLetrasCorrectas++;
-                encontrado = true;
-            } else {
-                console.log("pasó algo");
-            }
+        // REVELA LAS LETRAS CORRECTAS
+        // for (var g = 0; g < palabras[palabraAleatoria].length; g++) {
+        let verLetra = document.querySelector(".p" + h);
+        if (event.key.toUpperCase() == palabras[palabraAleatoria].charAt(h)) {
+            verLetra.style.display = "block";
         }
+        // }
 
-        if (numLetrasCorrectas == palabras[palabraAleatoria].length) {
+        // for (var j = 0; j < 8; j++) {
+        if (event.key.toUpperCase() == letrasSub[h] || event.key.toUpperCase() == palabras[palabraAleatoria].charAt(h)) {
+
+            encontrado = true;
+            // break;
+        } else {
+            console.log("pasó algo");
+        }
+        // }
+
+        // VALIDACION PARA IDENTIFICAR CUANDO SE GANA EN EL JUEGO
+        // for (var h = 0; h < palabras[palabraAleatoria].length; h++) {
+        if (event.key.toUpperCase() == palabras[palabraAleatoria].charAt(h)) {
+            encontra2 = true;
+        } else {
+            letrasSup.push(event.key.toUpperCase());
+            // break;
+        }
+        // }
+
+
+        if (letrasSup.length == palabras[palabraAleatoria].length) {
             pincel.font = "24px Monospace";
             pincel.fillStyle = "#7DCE13";
             pincel.fillText("¡Ganaste!", 135, 280);
@@ -121,6 +137,7 @@ function nuevaPartida() {
         } else {
             console.log("problemon");
         }
+        h++;
     });
 
 }
@@ -149,10 +166,10 @@ function crearLinea(x1, y1, x2, y2, grosor, color) {
 btnJugar.addEventListener("click", nuevaPartida);
 
 
-const btnNuevoJuego = document.querySelector(".btnNuevoJuego");
-btnNuevoJuego.addEventListener("click", () => {
-    location.reload();
-});
+// const btnNuevoJuego = document.querySelector(".btnNuevoJuego");
+// btnNuevoJuego.addEventListener("click", () => {
+//     location.reload();
+// });
 
 const btnRendirse = document.querySelector(".btnRendirse");
 btnRendirse.addEventListener("click", () => {
@@ -164,7 +181,7 @@ btnRendirse.addEventListener("click", () => {
 const btnAdd = document.querySelector(".btnAdd");
 btnAdd.addEventListener("click", () => {
     menuPrincipal.style.display = "none";
-    agregaPalabras.style.display = "block";
+    agregaPalabras.style.display = "flex";
 
     // AL PRECIONAR el boton "CANCELAR"
     const btnCancelar = document.querySelector(".btnCancelar");
@@ -179,7 +196,7 @@ btnAdd.addEventListener("click", () => {
         const palabra = document.querySelector(".palabra");
         palabras.push(palabra.value)
         menuPrincipal.style.display = "none";
-        jugando.style.display = "block";
+        jugando.style.display = "flex";
         nuevaPartida();
     });
 });

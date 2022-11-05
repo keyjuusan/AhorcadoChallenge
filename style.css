@@ -18,8 +18,15 @@ body {
 header h1 {
 	text-align: center;
 	color: var(--Blanco);
-	margin: 7px;
+	margin: 7px 7px 0 7px;
 }
+header p{
+	text-align: center;
+	font-size: 10px;
+	color: var(--Blanco);
+}
+header p a{text-decoration: none;color: var(--Verde);}
+header p a:visited{color: var(--Verde);}
 
 button {
 	border: none;
@@ -81,6 +88,10 @@ textarea {
 	height: 610px;
 }
 
+.lienso{
+	margin-top: 5px;
+}
+
 .sectorLetras {
 	width: 100%;
 
@@ -97,7 +108,7 @@ textarea {
 	font-size: 18px;
 	color: var(--Blanco);
 	display: flex;
-	height: 50px;
+	height: 40px;
 	width: 30px;
 	border-bottom: 1px solid var(--Blanco);
 	margin: 0 5px;
@@ -105,7 +116,7 @@ textarea {
 
 .letrasIncorrectas {
 	display: flex;
-	margin: 0 auto;
+	margin: 5px auto 0 auto;
 	color: var(--Rojo);
 	width: 160px;
 	height: 15px;

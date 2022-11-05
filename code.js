@@ -25,7 +25,7 @@ let palabraAleatoria = 0;
 let tecla;
 
 function nuevaPartida() {
-
+    agregaPalabras.style.display = "none"
     menuPrincipal.style.display = "none";
     jugando.style.display = "flex";
 
@@ -262,8 +262,6 @@ btnAdd.addEventListener("click", () => {
     btnGuardar.addEventListener("click", () => {
         const palabra = document.querySelector(".palabra");
         palabras.push(palabra.value)
-        menuPrincipal.style.display = "none";
-        jugando.style.display = "flex";
         nuevaPartida();
     });
 });

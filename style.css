@@ -18,7 +18,7 @@ body {
 header h1 {
 	text-align: center;
 	color: var(--Blanco);
-	padding: 7px;
+	margin: 7px;
 }
 
 button {

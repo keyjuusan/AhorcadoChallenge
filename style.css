@@ -118,23 +118,8 @@ textarea {
 	width: 20px;
 }
 
-/* TECLADO */
-
 .teclado{
-	display: flex;
-	flex-wrap: wrap;
-	width: 288px;
-}
-.teclado button{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: var(--Blanco);
-	width: 30px;
-	height: 30px;
-	border-radius: 2px;
-	cursor: pointer;
-	margin: 2px 0 0 2px;
+	display: none;
 }
 
 /*AGREGAR PALABRAS*/
@@ -159,7 +144,8 @@ textarea {
 	border-radius: 10px;
 	margin: 0 auto;
 }
-.btnsAgregando{
+
+.btnsAgregando {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -177,11 +163,33 @@ textarea {
 		width: 90%;
 	}
 
-	.btnsJugando, .btnsAgregando {
+	.btnsJugando,
+	.btnsAgregando {
 		display: flex;
 		flex-direction: column;
 		width: 90%;
 		justify-content: space-around;
 		height: 110px;
+	}
+
+	/* TECLADO */
+
+	.teclado {
+		display: flex;
+		flex-wrap: wrap;
+		width: 288px;
+		margin-top: 20px;
+	}
+
+	.teclado button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: var(--Blanco);
+		width: 30px;
+		height: 30px;
+		border-radius: 2px;
+		cursor: pointer;
+		margin: 2px 0 0 2px;
 	}
 }

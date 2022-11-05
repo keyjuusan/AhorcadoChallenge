@@ -52,8 +52,8 @@ textarea {
 .btnGuardar,
 .btnCancelar,
 .btnRendirse {
-	padding: 12px;
-	border-radius: 10px;
+	padding: 10px;
+	border-radius: 5px;
 	margin-top: 7px;
 }
 
@@ -116,6 +116,25 @@ textarea {
 	display: flex;
 	justify-content: center;
 	width: 20px;
+}
+
+/* TECLADO */
+
+.teclado{
+	display: flex;
+	flex-wrap: wrap;
+	width: 288px;
+}
+.teclado button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--Blanco);
+	width: 30px;
+	height: 30px;
+	border-radius: 2px;
+	cursor: pointer;
+	margin: 2px 0 0 2px;
 }
 
 /*AGREGAR PALABRAS*/

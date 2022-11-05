@@ -261,7 +261,7 @@ btnAdd.addEventListener("click", () => {
     const btnGuardar = document.querySelector(".btnGuardar");
     btnGuardar.addEventListener("click", () => {
         const palabra = document.querySelector(".palabra");
-        palabras.push(palabra.value)
+        palabras.push(palabra.value.toLowerCase())
         nuevaPartida();
     });
 });

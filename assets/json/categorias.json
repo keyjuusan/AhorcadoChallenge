@@ -1,0 +1,7 @@
+{
+    "colores": ["negro", "azul", "marron", "gris", "verde", "naranja", "rosa", "purpura", "rojo", "blanco", "amarillo"],
+
+    "frutas": ["albaricoque", "arandano", "breva", "cereza", "ciruela", "endrina", "frambuesa", "fresa", "granada", "grosella", "higo", "lima", "limon", "mandarina", "manzana", "melocoton", "melon", "membrillo", "mora", "naranja", "nispero", "pera", "piña", "platano", "pomelo", "sandia", "uva", "aguacate", "alquejenje", "caqui", "carambola", "chirimoya", "coco", "guayaba", "kiwano", "kiwi", "kumquat", "litchi", "mango", "mangostan", "maracuya", "papaya", "pitahaya", "rambutan", "tamarillo"],
+
+    "verduras": ["acelga", "achicoria", "ajo", "alcachofa", "apio", "berenjena", "repollo", "borraja", "brecol", "calabacin", "calabaza", "cardo", "cebolla", "cole", "coliflor", "endibias", "escarola", "esparragos", "espinacas", "hinojo", "judias", "lechuga", "nabo", "pepino", "pimiento", "puerro", "rabano", "remolacha", "tomate", "zanahoria"]
+}

@@ -1,35 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 	<title>Ahorcado</title>
 </head>
 
 <body>
-	<header>
-		<h1>El Ahorcado</h1>
-		<p>By <a href="https://github.com/keyjuusan">Heyker V.</a></p>
+	<header class="encabezado">
+		<h1 class="encabezado__titulo">El Ahorcado</h1>
+		<p class="encabezado__p">By <a href="https://github.com/keyjuusan">Heyker V.</a></p>
 	</header>
 
-	<main>
+	<main class="principal">
 
-		<div class="menuPrincipal">
-			<button class="btnJugar">Inciar juego</button>
-			<button class="btnAdd">Agregar palabras</button>
-		</div>
+		<section class="principal__menu">
+			<button class="menu__btnJugar btn">Inciar juego</button>
+			<button class="menu__btnAdd btn">Agregar palabras</button>
+		</section>
 
-		<div class="jugando">
-			<canvas class="lienso" width="294" height="360"></canvas>
+		<section class="principal__categorias">
+			<h2 class="categorias__titulo">Selecciona una categoria:</h2>
+			<button class="categorias_frutas frutas btn">Frutas</button>
+			<button class="categorias_verduras verduras btn">Verduras</button>
+			<button class="categorias_colores colores btn">Colores</button>
+			<button class="categorias_palabrasAñadidas palabrasAñadidas btn">Palabras añadidas</button>
+		</section>
 
-			<div class="sectorLetras">
-				<div class="letrasCorrectas"></div>
-				<div class="letrasIncorrectas"></div>
+		<section class="principal__jugando">
+			<canvas class="jugando__lienso" width="294" height="360"></canvas>
+
+			<div class="jugando__sectorLetras">
+				<div class="sectorLetras__correctas"></div>
+				<div class="sectorLetras__incorrectas"></div>
 			</div>
 
-			<div class="teclado">
+			<div class="jugando__teclado">
 				<button>A</button>
 				<button>B</button>
 				<button>C</button>
@@ -59,23 +67,27 @@
 				<button>Z</button>
 			</div>
 
-			<div class="btnsJugando">
-				<button class="btnRendirse">Volver a Jugar</button>
+			<div class="jugando__btns">
+				<button class="btn__reintentar btni">
+					<span class="reintentar__icon"></span>
+				</button>
+				<button class="btn__home btni">
+					<span class="home__icon"></span>
+				</button>
 			</div>
+		</section>
 
-		</div>
-
-		<div class="agregaPalabras">
-			<textarea class="palabra" maxlength="8" placeholder="Escriba acá una palabra adicional (sin acento)..."></textarea>
-			<div class="btnsAgregando">
-				<button class="btnGuardar">Guardar y jugar</button>
-				<button class="btnCancelar">Cancelar</button>
+		<section class="principal__agregaPalabras">
+			<textarea class="agregaPalabras__campo" maxlength="8" placeholder="Escriba acá una palabra adicional (sin acento)..."></textarea>
+			<div class="agregaPalabras__btns">
+				<button class="agregaPalabras__btnGuardar btn">Guardar y jugar</button>
+				<button class="agregaPalabras__btnCancelar btn">Cancelar</button>
 			</div>
-		</div>
+		</section>
 
 	</main>
 
-	<script src="code.js"></script>
+	<script type="module" src="./assets/js/code.js"></script>
 </body>
 
 </html>

@@ -165,8 +165,9 @@ textarea {
 
 .jugando__teclado {
 	display: flex;
+	justify-content: center;
 	flex-wrap: wrap;
-	width: 288px;
+	width: 350px;
 	gap: .12rem;
 }
 
@@ -175,8 +176,8 @@ textarea {
 	justify-content: center;
 	align-items: center;
 	background: var(--Blanco);
-	width: 30px;
-	height: 30px;
+	width: 36px;
+	height: 36px;
 	border-radius: 2px;
 	cursor: pointer;
 }
@@ -186,7 +187,7 @@ textarea {
 	flex-direction: row;
 	justify-content: space-between;
 	height: 3rem;
-	width: 286px;
+	width: 100%;
 }
 .btni{
 	height: 2rem;

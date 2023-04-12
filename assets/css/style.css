@@ -24,7 +24,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 90%;
+	width: 95%;
 }
 .encabezado__titulo {
 	text-align: center;
@@ -65,7 +65,7 @@ textarea {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 90%;
+	width: 95%;
 }
 .principal__menu {
 	display: flex;

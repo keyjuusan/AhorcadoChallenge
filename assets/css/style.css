@@ -250,7 +250,11 @@ textarea {
 
 /* RESPONSIVE */
 @media screen and (min-width:760px) {
-	
+
+.principal__menu{
+	height: 80vh;
+}
+
 .btn{
 	width: 30%;
 }

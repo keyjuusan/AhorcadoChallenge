@@ -242,8 +242,8 @@ textarea {
 
 .agregaPalabras__btns {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-direction: row;
+	justify-content: center;
 	gap: .6rem;
 	width: 100%;
 }
@@ -263,5 +263,8 @@ textarea {
 }
 .jugando__btns{
 	width: 350px;
+}
+.agregaPalabras__campo{
+	width: calc(60% - 10px);
 }
 }

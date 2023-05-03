@@ -3,6 +3,7 @@ import { frutas, verduras, colores } from "./categoriasAlmacen.js"
 const menuPrincipalSect = document.querySelector(".principal__menu");
 const btnJugar = document.querySelector(".menu__btnJugar");
 const btnAdd = document.querySelector(".menu__btnAdd");
+const btnGuardarJugar = document.querySelector(".agregaPalabras__btnGuardar")
 const categoriasSect = document.querySelector(".principal__categorias");
 const jugandoSect = document.querySelector(".principal__jugando");
 const letrasCorrectas = document.querySelector(".sectorLetras__correctas");
@@ -10,9 +11,9 @@ const letrasIncorrectas = document.querySelector(".sectorLetras__incorrectas");
 const btnHome = document.querySelector(".home__icon");
 const btnReintentar = document.querySelector(".reintentar__icon");
 const agregaPalabrasSect = document.querySelector(".principal__agregaPalabras");
-const btnAtras = document.querySelector(".agregaPalabras__btnCancelar")
+// const btnAtras = document.querySelector(".agregaPalabras__btnCancelar")
 
-let palabrasAñadidas = [];
+var palabrasAñadidas = [];
 var letrasSub = [];
 let categoriaActual = [];
 let palabraAleatoria = 0;
@@ -23,13 +24,30 @@ const teclasTeclado = document.querySelectorAll('.jugando__teclado button');
 btnJugar.addEventListener("click", (event) => {
     event.preventDefault();
 
+    mostrarCategoriasSect();    
+
+});
+
+function mostrarCategoriasSect() {
     jugandoSect.style.display = "none";
     menuPrincipalSect.style.display = "none";
     agregaPalabrasSect.style.display = "none";
     categoriasSect.style.display = "flex";
+}
 
+btnAdd.addEventListener("click", () => {
+    jugandoSect.style.display = "none";
+    menuPrincipalSect.style.display = "none";
+    agregaPalabrasSect.style.display = "flex";
+    categoriasSect.style.display = "none";
+})
 
-});
+btnGuardarJugar.addEventListener("click", (event) => {
+    event.preventDefault();
+    palabrasAñadidas = document.querySelector(".agregaPalabras__campo").value.toLowerCase().split(" ");
+    mostrarCategoriasSect();    
+
+})
 
 const lienso = document.querySelector(".jugando__lienso");
 const pincel = lienso.getContext("2d");
@@ -45,9 +63,9 @@ categoriasSect.addEventListener("click", (e) => {
 });
 
 btnHome.addEventListener("click", (event) => {
-    volverCasa(event);
+    volverCasa();
 
-    
+
 
     //crear un if en el nivel local entorno al la interaccion local para esta accion del evento
     // document.removeEventListener("keydown", keysEvent());
@@ -58,6 +76,7 @@ btnReintentar.addEventListener("click", (event) => {
 
     palabraAzar(categoriaActual);
 
+    teclasEvent();
     // jugandoSect.style.display = "none";
     // menuPrincipalSect.style.display = "flex";
     // agregaPalabrasSect.style.display = "none";
@@ -117,11 +136,11 @@ function selectCategoria(event) {
     }
 }
 
-function limpiarPartida(){
+function limpiarPartida() {
 
     //Vaciando sala de partida
     if (document.querySelectorAll(".cajaLetra").length > 0) {
-        let cajaLetra =  document.querySelectorAll(".cajaLetra");
+        let cajaLetra = document.querySelectorAll(".cajaLetra");
         let p = document.querySelectorAll(".sectorLetras__incorrectas p");
         pincel.clearRect(0, 0, 294, 360);
         for (let i = 0; i < cajaLetra.length; i++) {
@@ -132,7 +151,7 @@ function limpiarPartida(){
             p[i].remove();
         }
         letrasSub.length = 0;
-        palabrasAñadidas.length = 0;
+        // palabrasAñadidas.length = 0;
         palabraAleatoria = 0;
         for (let i = 0; i < 27; i++) { teclasTeclado[i].disabled = false; }
 
@@ -164,7 +183,7 @@ function teclasEvent() {
             // console.log(categoriaActual[palabraAleatoria].charAt(i))
             console.log(event.key.toLowerCase())
 
-            if (event.key.toLowerCase() == categoriaActual[palabraAleatoria].charAt(i)) {
+            if (event.key.toLowerCase() == categoriaActual[palabraAleatoria].charAt(i).toLowerCase()) {
                 cajaLetra[i].innerHTML = `<p>${categoriaActual[palabraAleatoria].charAt(i).toUpperCase()}</p>`;
 
                 encontrado = true;
@@ -341,8 +360,8 @@ function teclasEvent() {
     }
 }
 
-function volverCasa(evnt) {
-    evnt.preventDefault();
+function volverCasa() {
+    window.location.reload()
 
     //Vaciando sala de partida
     // if (document.querySelectorAll(".cajaLetra").length > 0) {
@@ -360,10 +379,10 @@ function volverCasa(evnt) {
     // }
 
 
-    jugandoSect.style.display = "none";
-    menuPrincipalSect.style.display = "flex";
-    agregaPalabrasSect.style.display = "none";
-    categoriasSect.style.display = "none";
+    // jugandoSect.style.display = "none";
+    // menuPrincipalSect.style.display = "flex";
+    // agregaPalabrasSect.style.display = "none";
+    // categoriasSect.style.display = "none";
 
 
 }

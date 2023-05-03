@@ -62,7 +62,7 @@ categoriasSect.addEventListener("click", (e) => {
 
 });
 
-btnHome.addEventListener("click", (event) => {
+btnHome.addEventListener("click", () => {
     volverCasa();
 
 
@@ -191,7 +191,7 @@ function teclasEvent() {
 
         }
 
-        for (let j = 0; j < categoriaActual[palabraAleatoria].length; j++) {
+        for (let j = 0; j < letrasSub.length; j++) {
             if (event.key.toLowerCase() == letrasSub[j]) {
                 encontrado = true;
             } else {
@@ -290,7 +290,7 @@ function teclasEvent() {
                 }
             }
 
-            for (let j = 0; j < categoriaActual[palabraAleatoria].length; j++) {
+            for (let j = 0; j < letrasSub.length; j++) {
                 if (evento.target.innerHTML.toLowerCase() == letrasSub[j]) {
                     encontrado = true;
                 } else {
@@ -302,49 +302,55 @@ function teclasEvent() {
                 letrasSub.push(evento.target.innerHTML.toLowerCase());
                 letrasIncorrectas.innerHTML += "<p>" + evento.target.innerHTML.toUpperCase() + "</p>";
 
-                if (letrasSub.length === 1) {
-                    //palo vertical
-                    crearRectangulo(98, 0, 5, 360, "#F9F9F9");
+                switch (letrasSub.length) {
 
-                } else if (letrasSub.length === 2) {
-                    //palo horizontal
-                    crearRectangulo(98, 0, 156, 3.5, "#F9F9F9");
-
-                } else if (letrasSub.length === 3) {
-                    //cuerda
-                    crearRectangulo(250.5, 0, 3.5, 55, "#F9F9F9");
-
-                } else if (letrasSub.length === 4) {
-                    //cabeza
-                    crearCirculo(253, 81, 25, "#F9F9F9");
-
-                } else if (letrasSub.length === 5) {
-                    //soga en el cuello
-                    crearLinea(248, 110, 258, 110, "3.5", "#F9F9F9");
-                    //torso
-                    crearRectangulo(251.5, 112, 3.5, 80, "#F9F9F9");
-
-                } else if (letrasSub.length === 6) {
-                    //brazo derecho
-                    crearLinea(254, 122, 282, 152, "3.5", "#F9F9F9");
-
-                } else if (letrasSub.length === 7) {
-                    //brazo izquierdo
-                    crearLinea(252, 122.5, 224, 152, "3.5", "#F9F9F9");
-
-                } else if (letrasSub.length === 8) {
-                    //pierna derecha
-                    crearLinea(254, 192, 282, 225, "3.5", "#F9F9F9");
-
-                } else if (letrasSub.length === 9) {
-                    //pierna izquierda
+                    case 1:
+                        //palo vertical
+                        crearRectangulo(98, 0, 5, 360, "#F9F9F9");
+                        break;
+                    case 2:
+                        //palo horizontal
+                        crearRectangulo(98, 0, 156, 3.5, "#F9F9F9");
+                        break;
+                    case 3:
+                        //cuerda
+                        crearRectangulo(250.5, 0, 3.5, 55, "#F9F9F9");
+                        break;
+                    case 4:
+                        //cabeza
+                        crearCirculo(253, 81, 25, "#F9F9F9");
+                        break;
+                    case 5:
+                        //soga en el cuello
+                        crearLinea(248, 110, 258, 110, "3.5", "#F9F9F9");
+                        //torso
+                        crearRectangulo(251.5, 112, 3.5, 80, "#F9F9F9");
+                        break;
+                    case 6:
+                        //brazo derecho
+                        crearLinea(254, 122, 282, 152, "3.5", "#F9F9F9");
+                        break;
+                    case 7:
+                        //brazo izquierdo
+                        crearLinea(252, 122.5, 224, 152, "3.5", "#F9F9F9");
+                        break;
+                    case 8:
+                        //pierna derecha
+                        crearLinea(254, 192, 282, 225, "3.5", "#F9F9F9");
+                        break;
+    
+                    case 9:
+                        //pierna izquierda
                     crearLinea(252, 192, 224, 225, "3.5", "#F9F9F9");
-
+                    
                     pincel.font = "24px Monospace";
                     pincel.fillStyle = "#FF1E00";
                     pincel.fillText("¡Perdiste!", 135, 280);
                     for (let i = 0; i < 27; i++) { teclasTeclado[i].disabled = true; }
-
+                        break;
+                    default:
+                        console.log("muchos intentos fallidos")
+                        break;
                 }
 
             } else if (document.querySelectorAll('.cajaLetra p').length == categoriaActual[palabraAleatoria].length) {
